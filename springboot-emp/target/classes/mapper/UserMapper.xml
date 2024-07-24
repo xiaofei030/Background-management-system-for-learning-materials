@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace:映射文件的命名空间指向的是映射器的全名(包名，类名)-->
+<mapper namespace="com.bmd.springbootemp.mapper.UserMapper">
+    <!--    映射器里的方法名称就是映射文件里的id-->
+    <select id="selectComByNameMapper" parameterType="String" resultType="com.bmd.springbootemp.entity.Community">
+    select * from community
+    where `Category` like #{community}
+    or `cName` like CONCAT('%',#{community},'%')
+    or `cAuthor` like CONCAT('%',#{community},'%')
+    or `cDate` like CONCAT('%',#{community},'%')
+    </select>
+</mapper>
